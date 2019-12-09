@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs')%>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <center>
+        <h1><%= prods.first_name+" "+prods.last_name%></h1>
+        <h3><%= prods.gender%></h3>
+        <h3><%= prods.dob%></h3>
+        <h3><%= prods.qualification1%></h3>
+        <h3><%= prods.phone_no%></h3>
+        <h3><%= prods.email%></h3>
+        <h3><%= prods.password%></h3>
+        <% if(prods.alternate_email != ""){%>
+            <h3><%= prods.alternate_email%></h3>
+        <%}%>
+        <h1>Residential Address</h1>
+        <h3><%= prods.address.currentAdd1%></h3>
+        <h3><%= prods.address.currentState1%></h3>
+        <h3><%= prods.address.currentDist1%></h3>
+        <h3><%= prods.address.currentBloc1%></h3>
+        <h1>Current Address</h1>
+        <h3><%= prods.alternate_address.alterAdd2%></h3>
+        <h3><%= prods.alternate_address.alterState2%></h3>
+        <h3><%= prods.alternate_address.alterDist2%></h3>
+        <h3><%= prods.alternate_address.alterBloc2%></h3>
+    </center>
+    </main>
+<%- include('../includes/end.ejs') %>

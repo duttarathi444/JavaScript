@@ -1,0 +1,79 @@
+
+<!-- saved from url=(0084)file:///Users/Chung/Desktop/Metro%20SCG/HTML%20New%20Pages/admin-systemsettings.html -->
+<%- include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<style>
+.btn btn-gold{
+  border: none;
+}
+</style>
+</head>
+<body>
+
+<div id="header" class="site-header">
+    <nav class="p-2 navbar navbar-expand-lg my-2 my-md-0 mr-md-3">
+      <a class="navbar-brand" href="#"></a>
+    
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item active"><a class="nav-link" href="file:///Users/Chung/Desktop/Metro%20SCG/HTML%20New%20Pages/admin-systemsettings.html#">Home <span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="file:///Users/Chung/Desktop/Metro%20SCG/HTML%20New%20Pages/admin-systemsettings.html#">Invoicing</a></li>
+          <li class="nav-item"><a class="nav-link" href="file:///Users/Chung/Desktop/Metro%20SCG/HTML%20New%20Pages/admin-systemsettings.html#">Compliance</a></li>
+          <li class="nav-item"><a class="nav-link" href="file:///Users/Chung/Desktop/Metro%20SCG/HTML%20New%20Pages/admin-systemsettings.html#">Reports</a></li>
+          <li class="nav-item"><a class="nav-link logout" href="/logout">Logout</a></li>         
+        </ul>
+      </div>
+    </nav>
+</div>
+
+<div class="content">
+  <div class="container">
+ 		<h2 class="gold-underline">Setting</h2>
+ 		 		
+   <div class="row">
+    <div class="col-3 module">
+          <form action="/student/alltest" method="POST">
+            <button type="submit" class="btn btn-link"><h5>Test</h5></button>
+          </form>
+        </div>
+    <%if(edit != true){%>
+    <div class="col-3 module">
+      <form action="/student/showStudentDetails" method="POST">
+          <input type="hidden" value="<%= prods%>" name="codeID">
+          <button type="submit" class="btn btn-link"><h5>Student Details</h5></button>
+      </form>
+    </div>
+    <div class="col-3 module">
+      <form action="/student/studentSignin" method="POST">
+        <input type="hidden" value="<%= prods%>" name="codeID">
+        <button type="submit" class="btn btn-link"><h5>Student Login</h5></button>
+      </form>
+    </div>
+
+      <div class="col-3 module last">
+          <form action="/student/studentSignup" method="POST">
+          <input type="hidden" value="<%= prods%>" name="codeID">
+          <button type="submit" class="btn btn-link"><h5>Student Registation</h5></button>
+          </form>
+      </div>
+      <%}%>
+  </div>
+  
+  <!-- <div class="row">
+    <div class="col-3 module">
+       	<h3></h3>
+    </div>
+    <div class="col-3 module">
+        <h3></h3>
+    </div>
+    <div class="col-3 module">
+      	<h3></h3>
+    </div>
+    <div class="col-3 module last">
+      	<h3></h3>
+    </div>
+  </div> -->
+  
+ </div> 
+</div>
+<%- include('../includes/end.ejs')%>

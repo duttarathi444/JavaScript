@@ -1,0 +1,60 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/stuSignupForm.css">
+<script type="text/javascript" src="/validations/loginpage.js"></script>
+<script type="text/javascript">
+function check(){
+    var pass = document.getElementById("pass");
+    if(pass.type === 'password'){
+        pass.type = 'text';
+    }else{
+        pass.type = 'password';
+    }
+}
+</script>
+</head>
+<body background="/images/mg.jpg">
+    <header class="head">
+	<center><h2 class="cng">Test Center Registation Form</h2></center>
+	</header>
+	<main>
+        <form action="/signupData" method="POST" class="employee-form" onsubmit="return myFunction()">
+			<div class="form-group">
+                <label for="name" class="cng">Name*</label>
+                <input type="text" name="name" class="form-control" value="<% if(editing) {%><%=modify[0].fName%><%} %>" required>
+            </div>
+
+
+			<div class="form-group">
+                <label for="address" class="cng">Address *</label>
+                <textarea name="address" rows="5" cols="43" class="form-control" required><% if(editing) {%><%=modify.address%><%} %></textarea>
+            </div>
+
+			<div class="form-group">
+                <label for="email" class="cng">Email *</label>
+                <input type="email" name="email" id="emailid" class="form-control" value="<% if(editing) {%><%=modify.email%><%} %>" required><span id="em" style="color: red;"></span>
+            </div>
+
+			<div class="form-group">
+                <label for="password" class="cng">Password *</label>
+                <input type="password" name="password" id="pass" class="form-control" value="<% if(editing) {%><%=modify.password%><%} %>" required><span id="pw" style="color: red;"></span>
+            </div>
+
+			<div class="form-group">
+                <label for="con_pass" class="cng">Confirm Password *</label>
+                <input type="password" name="con_pass" id="conpass" class="form-control" value="<% if(editing) {%><%=modify.password%><%} %>" required><span id="conpw" style="color: red;"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone_no" class="cng">Phone Number *</label>
+                <input type="text" name="phone_no" id="phone" class="form-control" value="<% if(editing) {%><%=modify.phoneNo%><%} %>" required><span id="pon" style="color: red;"></span>
+            </div>
+
+            <div class="saw">
+                    <input type="checkbox" onclick="check()">See Password<br>
+            </div>
+			<div>
+                <button class="btn1" type="submit">Submit</button>
+            </div>
+        </form>
+	</main>
+    <%- include('../includes/end.ejs') %>

@@ -1,0 +1,61 @@
+.saw{
+  color: black;
+}
+.btn1 {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+  font: inherit;
+  border: 1px solid #00695c;
+  color: #00695c;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn1:hover,
+.btn1:active {
+  background-color: #00695c;
+  color: white;
+}
+.cng{
+	color: rgb(46, 243, 112);
+}
+h2{
+	padding:0.25rem;
+}
+
+#li{
+  padding-left: 19%;
+  padding-top: 2.7%; 
+  position: relative;
+}
+
+.li1{
+  padding-right: 0%;
+  padding-top: 3%;
+  margin-left: -10px;
+  position: relative;
+}
+
+#emailAlter{
+  padding-left: 12px;
+  padding-right: 16px;
+  /*padding-right: 10px;*/
+}
+
+#alterEmail{
+  position: relative;
+  margin-top: 40px;
+  margin-right: 200px;
+  padding-bottom: 0px;
+  padding-left: 16px; 
+}
+
+#alterAddre{
+  position: relative;
+  margin-top: -2px;
+  margin-right: -200px;
+  padding-bottom: -12px;
+  padding-left: 26px;
+}

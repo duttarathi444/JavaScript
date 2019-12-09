@@ -1,0 +1,155 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/signupform.css">
+<script type="text/javascript" src="/validations/loginpage.js"></script>
+<script type="text/javascript" src="/validations/signupJquery.js"></script>
+</head>
+<body style="background-color: white;">
+    <header class="head">
+	<center><h2 class="cng">Student Registation Form</h2></center>
+	</header>
+	<main>
+        <form action="/student/<%if(editing != true){%>studentSignupData<%}else{%>studentUpdateData<%}%>" method="POST" class="container-fluid" onsubmit="return myFunction()"><br>
+        <div class="row">
+			<div class="col-3">
+                <label for="fname" class="cng">First Name*</label>
+                <input type="text" name="fname" class="form-control" value="<% if(editing == true){%><%= prods[0].first_name%><%}%>" required>
+            </div>
+
+			<div class="col-3">
+                <label for="lname" class="cng">Last Name *</label>
+                <input type="text" name="lname" class="form-control" value="<% if(editing == true){%><%= prods[0].last_name%><%}%>" required>
+            </div>
+
+			<div class="col-3">
+                <label for="gender" class="cng">Gender *</label>
+                <select name="gender" class="form-control" required>
+                    <option value="<%= prods[0].gender%>"><%if(editing == true){%><%= prods[0].gender%><%}else{%>Select Gender<%}%></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+			<div class="col-3">
+                <label for="dob" class="cng">Date of Birth *</label>
+                <input type="date" name="dob" class="form-control" value="<% if(editing == true){%><%= prods[0].dob%><%}%>" required>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-3">
+                    <label for="qalification" class="cng">Qualification *</label>
+                    <input type="text" name="qalification" class="form-control" value="<% if(editing == true){%><%= prods[0].qualification1%><%}%>" required>
+                </div>
+
+			<div class="col-3">
+                <label for="address" class="cng">Residential Address *</label>
+                <% if(editing == true){%>
+                <input type="text" name= address value="<%= prods[0].address.currentAdd1%>" class="form-control" required>
+                <%}else{%>
+                <textarea name="address" rows="2" cols="43" class="form-control" required></textarea>
+                <%}%>
+            </div>
+
+            <div class="col-3">
+                    <label for="Sate" class="cng">State *</label>
+                    <input type="text" name="state" class="form-control" value="<% if(editing == true){%><%= prods[0].address.currentState1%><%}%>" required>
+            </div>
+
+            <div class="col-3">
+                    <label for="district" class="cng">District *</label>
+                    <input type="text" name="district" class="form-control" value="<% if(editing == true){%><%= prods[0].address.currentDist1%><%}%>" required>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-3">
+                    <label for="block" class="cng">Block *</label>
+                    <input type="text" name="block" class="form-control" value="<% if(editing == true){%><%= prods[0].address.currentBloc1%><%}%>" required>
+            </div>
+
+			<div class="col-3">
+                <label for="email" class="cng">Email *</label>
+                <input type="text" name="email" class="form-control" id="emailid" value="<% if(editing == true){%><%= prods[0].email%><%}%>" required><span id="em" style="color: red;"></span>
+                <ul id="ids" class="list-group">
+
+                </ul>
+            </div>
+
+			<div class="col-3">
+                <label for="password" class="cng">Password *</label>
+                <input type="password" name="password" id="pass" class="form-control" value="<% if(editing == true){%><%= prods[0].password%><%}%>" required><span id="pw" style="color: red;"></span>
+                <ul id="names">
+
+                </ul>
+            </div>
+
+			<div class="col-3">
+                <label for="con_pass" class="cng">Confirm Password *</label>
+                <input type="password" name="con_pass" id="conpass" class="form-control" value="" required><span id="conpw" style="color: red;"></span>
+            </div>
+        </div><br>
+
+            <div class="row">
+                <div class="col-3">
+                    <label for="phone_no" class="cng">Phone Number *</label>
+                    <input type="text" name="phone_no" id="phone" class="form-control" value="<% if(editing == true){%><%= prods[0].phone_no%><%}%>" required><span id="pon" style="color: red;"></span>
+                </div>
+
+                <div class="li">
+                        <button type="submit" class="btn btn-link" id="alterEmail">Alternate Email</button>
+                </div>
+
+                <div id="emailAlter" class="col-3">
+                        <label for="alterEmai" class="cng">Alternate Email</label>
+                        <input type="email" name="alterEmai" class="form-control" value="<% if(editing == true){%><%= prods[0].alternate_email%><%}%>">
+                </div>
+
+                <div class="li1">
+                        <button type="submit" class="btn btn-link" id="alterAddre" >Alternate Address</button>
+                </div>
+            </div><br>
+
+                    <div id="addreAlter">
+                        <div class="row"> 
+                            <div class="col-3">
+                                <label for="alterAddress" class="cng">Alternate Address</label>
+                                <textarea name="alterAddress" rows="2" cols="43" class="form-control"></textarea>
+                            </div>
+                            <div class="col-3">
+                                <label for="alterState" class="cng">State</label>
+                                <input type="text" name="alterState" class="form-control" value="<% if(editing == true){%><%= prods[0].alternate_address.alterState2%><%}%>">
+                            </div>
+
+                            <div class="col-3">
+                                <label for="alterDist" class="cng">District</label>
+                                <input type="text" name="alterDist" id="emailid" class="form-control" value="<% if(editing == true){%><%= prods[0].alternate_address.alterDist2%><%}%>">
+                            </div>
+                
+                            <div class="col-3">
+                                    <label for="alterBloc" class="cng">Block</label>
+                                    <input type="text" name="alterBloc" id="emailid" class="form-control" value="<% if(editing == true){%><%= prods[0].alternate_address.alterBloc2%><%}%>">
+                            </div>
+                        </div>
+                    </div><br>
+                    <% if(editing == true){%>
+                        <input type="hidden" value="<%= prods[0].test_id%>" name="codeId">
+                        <input type="hidden" value="<%= prods[0]._id%>" name="stuId">
+                    <%}else{%>
+                        <input type="hidden" value="<%= prods%>" name="codeID">
+                    <%}%>
+            <div class="saw">
+                    <center><input type="checkbox" onclick="check()">See Password</center><br>
+            </div>
+            <% if(editing != true){%>
+			<div>
+                <center><button class="btn1" type="submit">Submit</button></center>
+            </div>
+            <% }else{ %>
+            <div>
+                <center><button class="btn1" type="submit">Update</button></center>
+            </div>
+            <% }%>
+        </form>
+	</main>
+    <%- include('../includes/end.ejs') %>

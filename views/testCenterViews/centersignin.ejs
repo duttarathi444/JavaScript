@@ -1,0 +1,61 @@
+<%- include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/signinform.css">
+<script type="text/javascript">
+	function myFunction(){
+		var passwo = document.getElementById('pass');
+		if(passwo.type === 'password'){
+			passwo.type = 'text';
+		}else{
+			passwo.type = 'password';
+		}
+	}
+	</script>
+</head>
+<body background="/images/lg2.jpg">
+	<header>
+		<center><h2 style="color: yellow">Login</h2></center>
+	</header>
+	<main>
+		<% if(editmode == true){ %>
+		<center><h2 style="color: seagreen;">Your data has been Submitted</h2></center>
+		<center><h2 style="color: seagreen;">Test Center ID is <span style="color: white;"><%= prods %></span></h2></center>
+		<% } %>
+
+		<% if(editmode == 2){ %>
+			<center><h2 style="color: seagreen;">Logout is Succesful</h2></center>
+		<% } %>
+
+		<% if(editmode == 3){ %>
+			<center><h2 style="color: seagreen;">you are doing something Wrong type</h2></center>
+			<% } %>
+		
+			<form class="employee-form" action="/signinData" method="POST">
+
+			<div class="form-group">
+                <label for="emai" class="cng1" style="color: white">Email*</label>
+                <input type="email" name="email" id="emai" class="form-control" required>
+            </div>
+
+			<div class="form-group">
+                <label for="pass" class="cng1" style="color: white">Password*</label>
+                <input type="password" name="password" id="pass" class="form-control" required>
+            </div>
+			
+			<div class="form-group">
+                <label for="testId" class="cng1" style="color: white">Test ID*</label>
+                <input type="text" name="testId" id="pass" class="form-control" required>
+            </div>
+			
+            <div class="see">
+            	<input type="checkbox" id="seepass" name="seepass" style="color: white" onclick="myFunction()">See Password
+            </div>
+            <button class="btn1" type="submit">Sign In</button>
+		</form>
+
+		<form action="/signup" method="GET">
+			<div class="gap">
+		    	<center><button class="btn2" type="submit">Sign Up</button></center>
+			</div>
+		</form>
+	</main>
+<%- include('../includes/end.ejs')%>

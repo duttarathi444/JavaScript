@@ -1,0 +1,63 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/allshow.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- <header>
+        <nav>
+            <div class="sub">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="myFunction()">Show</button>
+            </div>
+        </nav>
+    </header> -->
+    <main>
+        <table>
+            <tr>
+                <th>Full Name</th>
+                <th>Gender</th>
+                <th>Qualification</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Phone No</th>
+                <th>Edit</th>
+            </tr>
+                <%if(prods.length != 0){%>
+                    <% for(let i=0;i<prods.length;i++){%>
+                    <tr>
+                        <td><%= prods[i].first_name+" "+prods[i].last_name%></td>
+ 						<td><%= prods[i].gender%></td>
+                        <td><%= prods[i].qualification1%></td>
+                        <td><%= prods[i].dob%></td>
+                        <td><%= prods[i].email %></td>
+                        <td><%= prods[i].password %></td>
+                        <td><%= prods[i].phone_no%></td>
+                        <td>
+                            <form action="/student/studentDetails" method="POST">
+                            <div id="yn1">
+                            <button class="fa fa-eye btn" title="Details">
+                                <input type="hidden" value="<%= prods[i]._id%>" name="stdID">
+                            </button>
+                            </div>    
+                            </form>
+                            <form action="/student/studentEdit" method="POST">
+                            <div id="yn">
+                                <button class="fa fa-pencil-square-o btn" title="Edit">
+                                <input type="hidden" value="<%= prods[i]._id%>" name="stuID">
+                            </button>
+                            </div>    
+                            </form>
+                        </td>
+                    </tr>
+                    <%}%>
+                    <%}%>
+        </table>
+        <!-- <script type="text/javascript" src=""></script> -->
+            <!-- <form action="/previ" method="GET">
+                <div><button class="button1">Previous</button></div>
+            </form>
+            <form action="/next" method="GET">
+                <div class="bt"><button class="button2">Next</button></div>
+            </form> -->
+    </main>
+<%- include('../includes/end.ejs') %>

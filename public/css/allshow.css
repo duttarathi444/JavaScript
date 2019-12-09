@@ -1,0 +1,86 @@
+.sub{
+	text-align: right;
+	padding-bottom: 5%;
+	padding-top: 1%;
+	padding-right: 5%;
+}
+
+table {
+	/*padding-bottom: 20%;
+	padding-top: 10%;*/
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr{
+	padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  padding-right: 50px;
+  padding-bottom: 1%;
+
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/*.button1 {
+  background-color: #4CAF50; 
+  border: 1px solid green;
+  color: white; 
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left; 
+}
+.button2 {
+	text-align: right;
+  background-color: #4CAF50;
+  border: 1px solid green; 
+  color: white; 
+  padding: 10px 24px; 
+  cursor: pointer;
+}
+
+
+.bt{
+	text-align: right;
+}*/
+
+button.btn{
+  background-color: DodgerBlue;
+  border: none; 
+  color: white; 
+  padding: 8px 8px; 
+  font-size: 13px; 
+  cursor: pointer; 
+}
+button.btn:hover {
+  background-color: RoyalBlue;
+}
+
+#yn{
+  padding-left: -60px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  margin-top: -28px;
+  position: absolute;
+}
+#Yn1{
+  margin-top: -10px;
+  padding-top: -20px;
+  margin-right: 40px;
+  position: absolute;
+}
