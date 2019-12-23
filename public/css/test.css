@@ -1,5 +1,10 @@
-.col:hover{
+.col-md-4:hover{
 	transform: scale(1.1);
+	cursor: pointer
+}
+
+.col-md-4{
+	float: left;
 }
 
 h3,h4{
